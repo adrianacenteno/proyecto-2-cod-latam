@@ -2,12 +2,13 @@
 
 /* Fonts */
 /* Importar aquí la font */
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+Infant&display=swap');
+
 
 /* Aquí les dejamos como ayuda este "reset" en el cual ajustamos algunas propiedades
 *  cuyos valores asigna por defecto el navegador.
 */
-  
+
 /* Reset */
 * {
     box-sizing: border-box;
@@ -15,8 +16,8 @@
     padding: 0;
     /* Para que el scrolleo en la one page sea suave */
     scroll-behavior: smooth;
-    
-    }
+
+}
 
 /* Para quitar los puntos a los items de listas */
 ul {
@@ -32,60 +33,108 @@ a {
 /* Este max-width es para que el contenido no se "estire" demasiado hacia los costados y
 *  el margin: auto; para tenerlo centrado fácilmente ;)
 */
-header { /* Consigna alto del header, se pide tambien que el header debería quedar fijo a
-    la parte superior de la ventana al scrollear  pero al colocar "position" como "fixed" se modificaba 
-    completamente el diseño, se superponia a las secciones y la verdad no quedaba lindo, por eso lo deje "static" */
+header {
+    /* Consigna alto del header  */
+
     height: 90px;
-    position: static;
     width: 100%;
-    margin-top: 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-ul { /*flexbox*/
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+}
+
+.logo {
+    width: 100%;
+    height: 80px;
+}
+
+ul {
+    /*flexbox*/
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 90px;
-   
-   
+
+
 }
 
 main {
     max-width: 1200px;
     margin: auto;
-    
     font-size: medium;
     text-align: center;
 }
 
-body{
+body {
     /*Consigna interlineado, color de fondo general, tamaño texto general y font*/
-    font-family: 'Lato', sans-serif; 
-    background-color: #fbfbfb;
+    font-family: 'Ysabeau Infant', sans-serif;
+    background-color: beige;
     font-size: 18px;
     line-height: 1.2;
 }
 
 img {
     width: 50%;
-    max-width: 400px; /* consigna ancho de foto de presentacion*/
+    max-width: 400px;
+    /* consigna ancho de foto de presentacion*/
     border-radius: 60%;
 }
 
-.descarga { /* Boton de descaga*/
-    background-color: #af599e;
+.mostrarMas {
+    background-color: aliceblue;
+}
+
+#contenido-oculto {
+    display: none;
+}
+
+#contenido-oculto.visible {
+    display: block;
+}
+
+.modo-nocturno {
+    background-color: #065f5f;
+    color: beige;
+}
+
+.descarga {
+    /* Boton de descaga*/
+    background-color: rgb(21, 70, 70);
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fbfbfb;
-    font-size: 20px; /* Tamaño texto del boton */
+    font-size: 20px;
+    /* Tamaño texto del boton */
     border-radius: 50px;
     margin-left: 25%;
- }
+}
 
-.recuadro { /*recuadro del 2do parrafo segun el diseño*/
-    background-color: rgba(175, 89, 158, 0.3);
+.descarga:hover {
+    background-color: rgb(111, 233, 186);
+    color: black;
+}
+
+.recuadro {
+    /*recuadro del 2do parrafo segun el diseño*/
+    background-color:rgba(7, 156, 131, 0.3);
+    color: #0f0f0f;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+.nuevo_recuadro {
+    background-color: rgba(7, 156, 131, 0.3);
     color: #0f0f0f;
     margin: 20px;
     border-radius: 20px;
@@ -93,7 +142,7 @@ img {
 
 footer {
     /* Consigna de color de fondo de footer, alto y alineacion flexbox */
-    background-color: #af599e;
+    background-color: #065f5f;
     height: 90px;
     color: #fbfbfb;
     display: flex;
@@ -112,11 +161,13 @@ footer {
 }
 
 h1 {
-    font-size: 36px; /*tamaño de texto titulo principal*/
+    font-size: 36px;
+    /*tamaño de texto titulo principal*/
 }
 
 h2 {
-    font-size: 28px; /*Tamaño del texto titulo secundario*/
+    font-size: 28px;
+    /*Tamaño del texto titulo secundario*/
 }
 
 p {
@@ -129,14 +180,121 @@ p {
     /* Consigna: Las secciones deben ocupar la totalidad del alto de la pantalla*/
     min-height: 100vh;
     margin: 5%;
-    
+    margin-top: 90px;
+
+
 }
 
 #contacto {
     /* Consigna: Las secciones deben ocupar la totalidad del alto de la pantalla*/
-    min-height: 100vh;  
-   
+    min-height: 100vh;
+
 }
+
+ul.margen {
+    /*  margen inferior al elemento ul que contiene la lista de habilidades */
+    margin-bottom: 20px;
+}
+
+#inicio::before {
+    content: "";
+    display: block;
+    height: 90px;
+    /* Igual al alto del encabezado */
+    margin: -90px 0 0;
+    /* Compensar el espacio del encabezado */
+}
+
+#contacto::before {
+    content: "";
+    display: block;
+    height: 90px;
+    /* Igual al alto del encabezado */
+    margin: -90px 0 0;
+    /* Compensar el espacio del encabezado */
+}
+
+li.menudeinicio:hover, .active {
+    background-color: rgb(111, 233, 186);
+    color: #fbfbfb;
+    transition: backgroud-color 0,3s;
+}
+
+body.modo-nocturno {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+
+nav.modo-nocturno {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+
+/*media query*/
+
+@media(min-width: 1024px) {
+    section#inicio {
+        display: flex;
+        /* Agregar display flex para alinear los elementos horizontalmente */
+        justify-content: center;
+        /* Opcional: Alinea horizontalmente los elementos al centro */
+        align-items: center;
+        /* Opcional: Alinea verticalmente los elementos al centro */
+        flex-direction: row;
+    }
+
+    article.presentacion {
+        text-align: left;
+        width: 50%;
+    }
+
+    h1 {
+        font-size: 48px;
+        text-align: left;
+    }
+
+    .recuadros {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 30px; 
+        flex-wrap: wrap;
+    }
+    .recuadro {
+        width: calc(60% - 40px); /* Ajusta el ancho de los recuadros (50% del contenedor menos los márgenes) */
+        
+    }
+
+    .nuevo_recuadro {
+        width: calc(20% - 40px); /* Ajusta el ancho de los recuadros (50% del contenedor menos los márgenes) */
+       
+    }
+
+    .iconos {
+        margin-bottom: none;
+    }
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
